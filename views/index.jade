@@ -1,0 +1,49 @@
+extends layout
+
+block content
+
+	h1= title
+	#print
+	#side
+		#tabs
+			ul
+				li
+					a( href="#tabs-1" )用户
+				li
+					a( href="#tabs-2" )出题
+			#tabs-2
+				button#buttonA 出题
+				button#buttonB 提交
+				hr
+				#difficulty
+					form
+						p 题目数量 
+						input#number.fixwidth( type="number",value=20 )
+						p 多少以内 
+						input#maxInt.fixwidth( type="number",value=100 )
+						#checkset
+							input#add( type="checkbox",checked )
+							label( for="add" )加法
+							input#sub( type="checkbox",checked ) 
+							label( for="sub" )减法
+							input#mul( type="checkbox",checked ) 
+							label( for="mul" )乘法 
+							input#div( type="checkbox",checked ) 
+							label( for="div" )除法 
+				hr
+				.Timer#sinceCountdown
+				.icons				
+					span.ui-icon.ui-icon-help
+					span#NOC
+				.icons
+					span.ui-icon.ui-icon-check
+					span#RIGHT
+				.icons
+					span.ui-icon.ui-icon-close
+					span#ERROR
+
+			#tabs-1
+
+	#main
+		#TestEasy
+
