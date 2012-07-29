@@ -1,0 +1,26 @@
+extends layout
+
+block content
+	script( src='/javascripts/kvdb.js' )
+	h1= title
+	#side
+		#tabs
+			ul
+				li
+					a( href="#tabs-1" )控制
+				li
+					a( href="#tabs-2" )参数
+			#tabs-2
+				button#get 获取
+				p K
+				input#K.fixwidth( type='text' )
+				p V
+				input#V.fixwidth( type='text' )
+				button#set 设置
+				span#setret NO
+			#tabs-1
+				button#star 启动
+				button#stop 停止
+	#main
+		#TestEasy
+
