@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: '小学生算数' });
+  res.render('index', { title: '小学生口算' });
 };
