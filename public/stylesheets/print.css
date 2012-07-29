@@ -43,7 +43,7 @@ h4 { font-size:1.2em; }
 h5 { font-size:1em; }
 
 input.fixwidth {width:2em;}
-ul#tis {font: 200% "Courier New", sans-serif;margin: 2px;margin: 0; padding: 0; }
+ul#tis {font: 120% "Courier New", sans-serif;margin: 2px;margin: 0; padding: 0; }
 ul#tis li { position: relative; padding: 4px 0; cursor: pointer; float: left;  list-style: none; }
 ul#tis li input {color:grey;margin: 2px; position: relative; padding: 4px 0; cursor: pointer; float: left;  list-style: none; }
 ul#tis li span {margin: 2px; position: relative; padding: 4px 0; cursor: pointer; float: left;  list-style: none; }
