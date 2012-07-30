@@ -37,7 +37,31 @@ exports.set = function(req, res){
  	console.log(K+':'+V);
 	kv.set(K,V);
 	var ret = { 'err':'OK' };
-	res.writeHead(200,{'Content-Type': 'text/json'});
-	res.write(ret.toString());
+	res.writeHead(200,{'Content-Type': 'text/html; charset=utf-8'});
+	res.write(JSON.stringify(ret));
+	res.end();
+};
+
+exports.setbyget = function(req, res){
+	kv.init('./public/kvdb');
+	var K = req.query['K'];
+	var V = req.query['V'];
+ 	console.log(K+':'+V);
+	kv.set(K,V);
+	var ret = { 'err':'OK' };
+	res.writeHead(200,{'Content-Type': 'text/html; charset=utf-8'});
+	res.write(JSON.stringify(ret));
+	res.end();
+};
+
+exports.get = function(req, res){
+	kv.init('./public/kvdb');
+	var K = req.query['K'];
+	console.log(K+':');
+	V=kv.get(K);
+	console.log(K+':'+V);
+	var ret = { 'V':V.toString() };
+	res.writeHead(200,{'Content-Type': 'text/html; charset=utf-8'});
+	res.write(JSON.stringify(ret));
 	res.end();
 };

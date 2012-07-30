@@ -29,6 +29,8 @@ app.get('/', routes.index);
 app.get('/kvdb', routes.kvdb);
 app.get('/list', routes.list);
 app.post('/set', routes.set);
+app.get('/get', routes.get);
+app.get('/set', routes.setbyget);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
