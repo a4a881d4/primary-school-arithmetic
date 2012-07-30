@@ -7,9 +7,8 @@ $(function() {
 	$('#get').click( function () {
 		$('#TestEasy').html("");	
 		$.get('./list','', function(data,textStatus) {
-			var ret;
 			if( textStatus == 'success' ) {
-				ret=data;
+				var ret=JSON.parse(data);
 				var str = '<ul id="tis" class="ui-widget ui-helper-clearfix">';
 				for( var i in ret ) {
 					console.log('key='+i);
@@ -42,10 +41,6 @@ $(function() {
 				mySpan.css("color","red");
 		});
 	
-		$('#sinceCountdown').countdown('destroy');
-		var now = new Date();
-		$('#sinceCountdown').countdown({since: now,format: 'MS'})
-		  					.css("display","block");
 	});
 
 	$('#set').click( function () {
@@ -53,6 +48,7 @@ $(function() {
 		var V = $('#V' ).val();
 		var req = { 'K':K, 'V':V };
 		$.post('./set',req, function(data,textStatus) {
+			alert('html return'+textStatus);
 			if( textStatus == 'success' ) {
 				$('span#setret').html('OK');
 			}

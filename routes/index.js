@@ -17,16 +17,16 @@ exports.kvdb = function(req, res){
 exports.list = function(req, res){
 	kv.init('./public/kvdb');
 	var keys = kv.list();
-	var ret;
+	var ret={};
   for( k in keys ) {
    	var K = keys[k];
    	console.log(K);
-		var V = kv.get(K);
+		var V = kv.get(K).toString();
    	console.log(V);
 		ret[K]=V;
 	}
-	res.writeHead(200,{'Content-Type': 'text/json'});
-	res.write(ret);
+	res.writeHead(200,{'Content-Type': 'text/html; charset=utf-8'});
+	res.write(JSON.stringify(ret));
 	res.end();
 };
 
