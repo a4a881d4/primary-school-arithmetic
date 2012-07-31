@@ -1,5 +1,7 @@
 $(function() {
 
+	$.ajaxSetup({ cache: false });
+
 	$('#tabs').tabs();
 
 	$( "button" ).button();

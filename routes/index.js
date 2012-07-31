@@ -15,7 +15,7 @@ exports.kvdb = function(req, res){
 };
 
 exports.list = function(req, res){
-	kv.init('./public/kvdb');
+	kvinit();
 	var keys = kv.list();
 	var ret={};
   for( k in keys ) {
@@ -31,7 +31,7 @@ exports.list = function(req, res){
 };
 
 exports.set = function(req, res){
-	kv.init('./public/kvdb');
+	kvinit();
 	var K = req.body['K'];
 	var V = req.body['V'];
  	console.log(K+':'+V);
@@ -43,7 +43,7 @@ exports.set = function(req, res){
 };
 
 exports.setbyget = function(req, res){
-	kv.init('./public/kvdb');
+	kvinit();
 	var K = req.query['K'];
 	var V = req.query['V'];
  	console.log(K+':'+V);
@@ -55,7 +55,7 @@ exports.setbyget = function(req, res){
 };
 
 exports.get = function(req, res){
-	kv.init('./public/kvdb');
+	kvinit();
 	var K = req.query['K'];
 	console.log(K+':');
 	V=kv.get(K);
@@ -65,3 +65,11 @@ exports.get = function(req, res){
 	res.write(JSON.stringify(ret));
 	res.end();
 };
+
+kvinit = function() {
+	kv.root('./public/kvdb');
+	kv.newDB('arithmetic');
+	kv.DB('arithmetic');
+	kv.newTable('tuantuan');
+	kv.Table('tuantuan');
+}
