@@ -32,10 +32,13 @@ exports.list = function(req, res){
 
 exports.set = function(req, res){
 	kvinit();
-	var K = req.body['K'];
-	var V = req.body['V'];
- 	console.log(K+':'+V);
-	kv.set(K,V);
+	console.log(JSON.stringify(req.body));
+	for( var i in req.body ) {
+		var K = req.body[i]['K'];
+		var V = req.body[i]['V'];
+ 		console.log(K+':'+V);
+		kv.set(K,V);
+	}	
 	var ret = { 'err':'OK' };
 	res.writeHead(200,{'Content-Type': 'text/html; charset=utf-8'});
 	res.write(JSON.stringify(ret));

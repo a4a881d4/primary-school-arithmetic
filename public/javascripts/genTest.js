@@ -190,6 +190,18 @@ $(function() {
 		$('#ERROR').html(sumE);
 		$('#sinceCountdown').countdown('pause');
 		$('.icons').css('display','block');
+		var req = {};		
+		$('#TestEasy ul li').each( function() {
+			var i = $('#TestEasy ul li').index(this);
+			var a = ""+i;			
+			req[a]={};
+			req[a]['K']=$(this).children('span').html();
+			var str = {};
+			str['right']=$(this).children('input').attr("res");
+			str['answer']=$(this).children('input').val();
+			req[a]['V']=JSON.stringify(str);
+		});
+		$.post('./set',req);
 	});
 
 	$( "#add" ).button();
