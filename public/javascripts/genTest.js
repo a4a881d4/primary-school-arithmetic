@@ -201,7 +201,7 @@ $(function() {
 			str['answer']=$(this).children('input').val();
 			req[a]['V']=JSON.stringify(str);
 		});
-		$.post('./set',req);
+		$.post('/set',req);
 	});
 
 	$( "#add" ).button();

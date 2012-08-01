@@ -20,10 +20,9 @@ exports.list = function(req, res){
 	var ret={};
   for( k in keys ) {
    	var K = keys[k];
-   	console.log(K);
-		var V = kv.get(K).toString();
-   	console.log(V);
-		ret[K]=V;
+   	var V = kv.get(K).toString();
+   	ret[K]=V;
+   	console.log(K+':'+V);
 	}
 	res.writeHead(200,{'Content-Type': 'text/html; charset=utf-8'});
 	res.write(JSON.stringify(ret));
@@ -70,7 +69,7 @@ exports.get = function(req, res){
 };
 
 kvinit = function() {
-	kv.root('./public/kvdb');
+	kv.root(__dirname+'/../public/kvdb');
 	kv.newDB('arithmetic');
 	kv.DB('arithmetic');
 	kv.newTable('tuantuan');

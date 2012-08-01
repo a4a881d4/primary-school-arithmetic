@@ -9,7 +9,7 @@ $(function() {
 	$('#get').click( function () {
 		$('#TestEasy').html("");
 		var ret={};	
-		$.get('./list','', function(data,textStatus) {
+		$.get('/list','', function(data,textStatus) {
 			if( textStatus == 'success' ) {
 				ret=JSON.parse(data);
 				var str = '<ul id="tis" class="ui-widget ui-helper-clearfix">';
@@ -51,7 +51,7 @@ $(function() {
 		var K = $('#K' ).val();
 		var V = $('#V' ).val();
 		var req = { 'K':K, 'V':V };
-		$.post('./set',req, function(data,textStatus) {
+		$.post('/set',req, function(data,textStatus) {
 			if( textStatus == 'success' ) {
 				$('span#setret').html('OK');
 			}
