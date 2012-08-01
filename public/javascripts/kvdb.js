@@ -1,7 +1,6 @@
 $(function() {
 
 	$.ajaxSetup({ cache: false });
-
 	$('#tabs').tabs();
 
 	$( "button" ).button();
@@ -33,7 +32,7 @@ $(function() {
 					var V = P.children('input').val();
 					var req = { 'K':K, 'V':V };
 					console.log(K+':'+V);
-					$.post('./set',req, function(data,textStatus) {
+					$.get('./set',req, function(data,textStatus) {
 						if( textStatus == 'success' ) {
 							P.find('button').html('OK');
 						}
@@ -51,7 +50,7 @@ $(function() {
 		var K = $('#K' ).val();
 		var V = $('#V' ).val();
 		var req = { 'K':K, 'V':V };
-		$.post('/set',req, function(data,textStatus) {
+		$.get('/set',req, function(data,textStatus) {
 			if( textStatus == 'success' ) {
 				$('span#setret').html('OK');
 			}
